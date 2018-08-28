@@ -8,11 +8,21 @@ image: http://kinlane-productions.s3.amazonaws.com/screen-capture-api/28871-evry
 x-kinRank: "7"
 x-alexaRank: "686135"
 tags: Logout
-created: "2018-08-25"
-modified: "2018-08-25"
+created: "2018-08-28"
+modified: "2018-08-28"
 url: https://raw.githubusercontent.com/streamdata-gallery-topics/logout/master/_listings/evrythng/apis.md
 specificationVersion: "0.14"
-apis: []
+apis:
+- name: EVRYTHNG - /auth/all/logout (U)
+  x-api-slug: authalllogout-post
+  description: USER logs himself out (which renders the user API Key invalid).
+  image: http://kinlane-productions.s3.amazonaws.com/screen-capture-api/28871-evrythng-com.jpg
+  humanURL: https://evrythng.com
+  baseURL: https://example.com//
+  tags: SaaS, Enterprise, Internet of Things, Profiles, Relative Data
+  properties:
+  - type: x-openapi-spec
+    url: https://raw.githubusercontent.com/streamdata-gallery-topics/logout/master/_listings/evrythng/authalllogout-post-openapi.md
 x-common:
 - type: x-deprecation
   url: https://developers.evrythng.com/docs/deprecation

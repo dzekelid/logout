@@ -1,14 +1,10 @@
 ---
 swagger: "2.0"
-x-collection-name: Plentymarkets
+x-collection-name: EVRYTHNG
 x-complete: 0
 info:
-  title: Plentymarkets Logout
-  description: Logs out the front end user from the online store. The access token
-    expires.
-  contact:
-    name: plentymarkets
-    url: https://forum.plentymarkets.com/c/rest-api
+  title: EVRYTHNG /auth/all/logout (U)
+  description: USER logs himself out (which renders the user API Key invalid).
   version: 1.0.0
 host: example.com
 basePath: /
@@ -19,17 +15,23 @@ produces:
 consumes:
 - application/json
 paths:
-  /rest/account/logout:
+  /auth/all/logout:
     post:
-      summary: Logout
-      description: Logs out the front end user from the online store. The access token
-        expires.
-      operationId: postRestAccountLogout
-      x-api-path-slug: restaccountlogout-post
+      summary: /auth/all/logout (U)
+      description: USER logs himself out (which renders the user API Key invalid).
+      operationId: AuthAllLogoutPost
+      x-api-path-slug: authalllogout-post
+      parameters:
+      - in: header
+        name: Accept
+      - in: header
+        name: Content-Type
       responses:
         200:
           description: OK
       tags:
+      - Auth
+      - ""
       - Logout
 x-streamrank:
   polling_total_time_average: 0

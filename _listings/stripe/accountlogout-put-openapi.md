@@ -1,10 +1,20 @@
+---
 swagger: "2.0"
-x-collection-name: Lykke
-x-complete: 1
+x-collection-name: Stripe
+x-complete: 0
 info:
-  title: Wallet_Api
-  version: 1.0.0
-basePath: /
+  title: Stripe Put Account Logout
+  description: Invalidates all sessions for a light account, for a platform to use
+    during platform logout.You may only log out Express accounts connected to your
+    platform.
+  termsOfService: https://stripe.com/us/terms/
+  contact:
+    name: Stripe Dev Platform Team
+    url: https://stripe.com
+    email: dev-platform@stripe.com
+  version: v1
+host: api.stripe.com
+basePath: v1/
 schemes:
 - http
 produces:
@@ -12,16 +22,20 @@ produces:
 consumes:
 - application/json
 paths:
-  /api/Auth/LogOut:
-    post:
-      summary: Add API Auth Logout
-      description: Add api auth logout.
-      operationId: ApiAuthLogOutPost
-      x-api-path-slug: apiauthlogout-post
+  /account/logout:
+    put:
+      summary: Put Account Logout
+      description: Invalidates all sessions for a light account, for a platform to
+        use during platform logout.You may only log out Express accounts connected
+        to your platform.
+      operationId: putAccountLogout
+      x-api-path-slug: accountlogout-put
       parameters:
-      - in: header
-        name: Authorization
-        description: access token
+      - in: body
+        name: payload
+        description: Body parameters for the request
+        schema:
+          $ref: '#/definitions/holder'
       responses:
         1:
           description: Photoset not found - The photoset id passed was not the id
@@ -65,8 +79,20 @@ paths:
         116:
           description: Bad URL found - One or more arguments contained a URL that
             has been used for abuse on Flickr
-        200:
-          description: OK
       tags:
-      - Auth
+      - Account
       - Logout
+x-streamrank:
+  polling_total_time_average: 0
+  polling_size_download_average: 0
+  streaming_total_time_average: 0
+  streaming_size_download_average: 0
+  change_yes: 0
+  change_no: 0
+  time_percentage: 0
+  size_percentage: 0
+  change_percentage: 0
+  last_run: ""
+  days_run: 0
+  minute_run: 0
+---
